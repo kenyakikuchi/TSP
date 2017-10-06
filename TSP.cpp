@@ -28,23 +28,23 @@ TSP::TSP(char* filename, double epsilon, double delta)
 void TSP::main()
 {
     int sample_number = std::ceil(log(1/this->delta)/this->epsilon);
-    std::cout << "sample number is " << sample_number << std::endl;
+    //std::cout << "sample number is " << sample_number << std::endl;
     for (int i=0; i<sample_number; i++) {
         this->fisher_yates.shuffle(0);
         double current_length = this->problem.getPathLength(this->fisher_yates.getValue());
 
-        std::cout << current_length << std::endl;
+        std::cout << current_length;
         //std::cout << current_length << ",";
-        //for (auto ddd : this->fisher_yates.getValue())
-        //	std::cout << ddd << ",";
-        //std::cout << std::endl;
+        for (auto ddd : this->fisher_yates.getValue())
+        	std::cout << ddd << ",";
+        std::cout << std::endl;
 
         if (this->ans_length > current_length) {
             this->ans_length = current_length;
             this->answer = fisher_yates.getValue();
         }
     }
-    std::cout << "answer of " << sample_number << " samples is " << this->ans_length << std::endl;
+    //std::cout << "answer of " << sample_number << " samples is " << this->ans_length << std::endl;
     //std::cout << "answer of " << sample_number << " samples," << this->ans_length << std::endl;
     //std::cout << "route,";
     //for (auto ddd : this->answer)
