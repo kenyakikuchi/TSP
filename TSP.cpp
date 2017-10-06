@@ -33,11 +33,11 @@ void TSP::main()
         this->fisher_yates.shuffle(0);
         double current_length = this->problem.getPathLength(this->fisher_yates.getValue());
 
-        std::cout << current_length;
+        //std::cout << current_length;
         //std::cout << current_length << ",";
-        for (auto ddd : this->fisher_yates.getValue())
-        	std::cout << ddd << ",";
-        std::cout << std::endl;
+        //for (auto ddd : this->fisher_yates.getValue())
+        //	std::cout << ddd << ",";
+        //std::cout << std::endl;
 
         if (this->ans_length > current_length) {
             this->ans_length = current_length;
@@ -47,9 +47,10 @@ void TSP::main()
     //std::cout << "answer of " << sample_number << " samples is " << this->ans_length << std::endl;
     //std::cout << "answer of " << sample_number << " samples," << this->ans_length << std::endl;
     //std::cout << "route,";
-    //for (auto ddd : this->answer)
-    //	std::cout << ddd << ",";
-    //std::cout << std::endl;
+    std::cout << this->ans_length;
+    for (auto ddd : this->answer)
+    	std::cout << ddd << ",";
+    std::cout << std::endl;
 }
 
 void TSP::readFile(char* filename)
@@ -61,6 +62,14 @@ void TSP::readFile(char* filename)
         std::cout << "file cannot open" << std::endl;
         std::exit(0);
     }
+
+	while (getline(ifs, str)) {
+		std::vector<std::string> s = split(str, ' ');
+		if (s[0] == "1") {
+			this->problem.addNode(Node(std::stod(s[1]), std::stod(s[2])));
+			break;
+		}
+	}
 
     while (getline(ifs, str)) {
     	std::vector<std::string> s = split(str, ' ');
