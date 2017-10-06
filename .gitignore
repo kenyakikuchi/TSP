@@ -1,5 +1,7 @@
 *.tsp
 *.o
 *.log
+*.csv
+*.ods
 *.out
 
