@@ -1,7 +1,9 @@
 #! /usr/bin/bash
 
-: > log.csv
-for i in `seq 100`
-do
-./TSP.out wi29.tsp 0.001 0.01 >> log.csv
-done
+FILENAME="qa194"
+
+: > ./results/${FILENAME}.csv
+#for i in `seq 100`
+#do
+./bin/TSP.out ./datasets/${FILENAME}.tsp 0.00001 0.01 >> ./results/${FILENAME}.csv
+#done
