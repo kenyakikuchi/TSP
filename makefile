@@ -1,27 +1,36 @@
 CC		= gcc
 CXX		= g++
+
 CFLAGS	= -O2 -Wall
 CXXFLAGS = -O2 -Wall -std=c++11
 
 TARGET	= TSP.out
-CSOURCES := $(shell ls *.c)
-CXXSOURCES := $(shell ls *.cpp)
-HEADER	:= $(shell ls *.h)
-OBJS	:= $(CSOURCES:.c=.o) $(CXXSOURCES:.cpp=.o)
+
+TARGETDIR := ./bin
+CDIR    := ./
+CXXDIR  := ./sources
+OBJDIR  := ./objects
+
+CSOURCES := $(shell ls $(CDIR)/*.c)
+CXXSOURCES := $(shell ls $(CXXDIR)/*.cpp)
+OBJS	:= $(subst $(CXXDIR), $(OBJDIR),  $(CXXSOURCES:.cpp=.o))
+
 LDFLAGS	=
-INCLUDES =
-LIBS	=# -lglut -lGLU -lGL -lm
+INCLUDES = -I ./includes
+LIBS	= #-lglut -lGLU -lGL -lm
+
+
 
 $(TARGET): $(OBJS) $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CXX) $(LDFLAGS) -o $(TARGETDIR)/$@ $(OBJS) $(LIBS)
 
-.c.o:
-	$(CC) $(CFLAGS) $(INCLUDES) -c $<
+$(OBJDIR)/%.o: %(CDIR)/%.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<
+$(OBJDIR)/%.o: $(CXXDIR)/%.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-main.o: resources.h
-Nodes.o: Nodes.h
-Fisher_Yates.o: Fisher_Yates.h
-TSP.o: TSP.h
+objects/main.o: includes/resources.h
+objects/Nodes.o: includes/Nodes.h
+objects/Fisher_Yates.o: includes/Fisher_Yates.h
+objects/TSP.o: includes/TSP.h
