@@ -33,11 +33,11 @@ void TSP::main()
         this->fisher_yates.shuffle(0);
         double current_length = this->problem.getPathLength(this->fisher_yates.getValue());
 
-        //std::cout << current_length;
+        std::cout << current_length;
         //std::cout << current_length << ",";
         //for (auto ddd : this->fisher_yates.getValue())
         //	std::cout << ddd << ",";
-        //std::cout << std::endl;
+        std::cout << std::endl;
 
         if (this->ans_length > current_length) {
             this->ans_length = current_length;
@@ -47,10 +47,10 @@ void TSP::main()
     //std::cout << "answer of " << sample_number << " samples is " << this->ans_length << std::endl;
     //std::cout << "answer of " << sample_number << " samples," << this->ans_length << std::endl;
     //std::cout << "route,";
-    std::cout << this->ans_length;
-    for (auto ddd : this->answer)
-    	std::cout << ddd << ",";
-    std::cout << std::endl;
+    //std::cout << this->ans_length;
+    //for (auto ddd : this->answer)
+    //	std::cout << ddd << ",";
+    //std::cout << std::endl;
 }
 
 void TSP::readFile(char* filename)
