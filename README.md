@@ -2,27 +2,27 @@
 verifying PAC learnability of TSP
 
 # DIRECTORY STRUCTURE
-TSP/
-+--includes/
-|  +--Fisher_Yates.h
-|  +--Nodes.h
-|  +--TSP.h
-|  +--resources.h
-+--sources/
-|  +--Fisher_Yates.cpp
-|  +--Nodes.cpp
-|  +--TSP.cpp
-|  +--main.cpp
-+--objects/
-|  +--*.o
-+--bin/
-|  +--TSP.out
-+--datasets/
-|  +--*.tsp
-+--results/
-|  +--*.csv
-+--README.md
-+--TSP.sh
+TSP/  
++--includes/  
+|  +--Fisher_Yates.h  
+|  +--Nodes.h  
+|  +--TSP.h  
+|  +--resources.h  
++--sources/  
+|  +--Fisher_Yates.cpp  
+|  +--Nodes.cpp  
+|  +--TSP.cpp  
+|  +--main.cpp  
++--objects/  
+|  +--*.o  
++--bin/  
+|  +--TSP.out  
++--datasets/  
+|  +--*.tsp  
++--results/  
+|  +--*.csv  
++--README.md  
++--TSP.sh  
 +--makefile
 
 # SETUP
