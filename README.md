@@ -1,5 +1,5 @@
 # TSP
-verifying PAC learnability of TSP
+verify PAC learnability of TSP
 
 # DIRECTORY STRUCTURE
 TSP/  
